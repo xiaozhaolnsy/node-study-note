@@ -30,7 +30,7 @@
 	step3 REPL：交互式解释器
 	step4 回调函数(比较阻塞与非阻塞->异步调用后向下进行直到回调)
 			->一般作为函数最后一个参数、回调函数接收错误对象作为第一个参数
-20:00-22:00	
+20:00-22:00
 	step5 事件循环
 			->Node几乎每一个 API 都是支持回调函数的。
 			->Node基本所有事件机制都是用设计模式中观察者模式实现。
@@ -45,4 +45,28 @@
 			->四种类型Readable、Writable、Duplex、Transform
 			->所有Stream对象都是EventEmitter实例
 				->常用事件data(read)、end、error、finish(write)
+	step9 Moudle
+			->exports、require
+	step10 Function
+			->Function be a parameter.
+			->Anonymous Funcion.
+	
+	比较重要
+	step11 Router:如何将router整合进server
+									url.parse(string).query
+			url.parse(string).pathname      |
+						|                   |
+						------ -------------------
+	http://localhost:8888/start?foo=bar&hello=world
+								---     -----
+								|           |
+	querystring.parse(queryString)["foo"]	|
+											|
+							querystring.parse(queryString)["hello"]
+	step12 全局对象
+			->__filename、dirname
+			->setTimeout(cb,ms)、clearTimeout(t)、setInteval(cb,ms)
+			->console
+			
+
 						

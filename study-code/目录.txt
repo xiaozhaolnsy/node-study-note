@@ -14,6 +14,18 @@ study-code-index
         |-- step6 EventEmitter类
     |-- step7 Buffer
     |-- step8 Stream
-        |--ReaderStream
-        |--WriterStream
-        |--pipe
+        |-- ReaderStream
+        |-- WriterStream
+        |-- pipe
+            |-- copy
+            |-- Gzip
+            |-- Gunzip
+    |-- step9 Module
+        |-- exports
+        |-- require
+    |-- step10 Function
+		|-- Function be a parameter.
+		|-- Anonymous Funcion.
+    |-- step11 跑起整合router的服务器
+        |-- step11_router.js
+        |-- step11 server.js
