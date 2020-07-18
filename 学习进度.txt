@@ -22,10 +22,27 @@
 	3、GC->原理和JVM复制算法相似
 	4、闭包->实现外部作用域访问内部作用域的方法叫闭包。
 
-17:00 学习菜鸟教程 https://www.runoob.com/nodejs/nodejs-tutorial.html
-	代码见./study-code/step[1..x].js
+17:00-18:00 学习菜鸟教程 https://www.runoob.com/nodejs/nodejs-tutorial.html
+	代码path:./study-code/step[1..x].js
+	
 	step1 创建服务器 1)require("http") 2)createServer
 	step2 NPM：Node随同包管理工具
 	step3 REPL：交互式解释器
 	step4 回调函数(比较阻塞与非阻塞->异步调用后向下进行直到回调)
-			->一般作为函数最后一个参数
+			->一般作为函数最后一个参数、回调函数接收错误对象作为第一个参数
+20:00-22:00	
+	step5 事件循环
+			->Node几乎每一个 API 都是支持回调函数的。
+			->Node基本所有事件机制都是用设计模式中观察者模式实现。
+			->events模块、eventEmitter对象、
+		step6 EventEmitter类
+				->.emit()触发事件
+				->.on()绑定事件
+	step7 Buffer
+			->js只有String型，没有binary型
+			->流必须用binary，Buffer随Node内核发布，使Node能处理bin
+	step8 Stream
+			->四种类型Readable、Writable、Duplex、Transform
+			->所有Stream对象都是EventEmitter实例
+				->常用事件data(read)、end、error、finish(write)
+						
