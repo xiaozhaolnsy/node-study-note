@@ -67,6 +67,6 @@
 			->__filename、dirname
 			->setTimeout(cb,ms)、clearTimeout(t)、setInteval(cb,ms)
 			->console
-			
+			->process
 
 						
