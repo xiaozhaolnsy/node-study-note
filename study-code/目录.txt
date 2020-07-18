@@ -28,4 +28,11 @@ study-code-index
 		|-- Anonymous Funcion.
     |-- step11 跑起整合router的服务器
         |-- step11_router.js
-        |-- step11 server.js
+        |-- step11_server.js
+    |-- step12 全局对象
+    |-- step13
+        |-- step13_1 .callbackify() 回调返回值
+        |-- step13_2 .inherits() 继承
+        |-- step13_3 .inspect() 输出字符串
+        |-- step13_4 .isArray()、.isRegExp()、.isDate()
+    |-- step14 文件系统 暂略

@@ -68,5 +68,10 @@
 			->setTimeout(cb,ms)、clearTimeout(t)、setInteval(cb,ms)
 			->console
 			->process
-
+	step13 常用工具 util
+			-> .callbackify();async异步函数转换为遵循异常优先的回调风格函数
+			-> .inherits();继承，不能继承构造器中属性或函数
+			-> .inspect(); 将任意对象转换为字符串 ->类似Java中的.toString();
+			-> .isArray()、.isRegExp()、.isDate()
+	step14 文件系统 暂略
 						
