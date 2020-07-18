@@ -17,3 +17,15 @@
 	Tick:每次循环的过程。每次Tick（观察者）查看是否有事件待处理
 		->有，取出事件和相关回调。
 		->回调的实现。
+	2、Node优势：基于事件驱动的非阻塞IO模型（资源利用更好）
+	   Node难点：异常处理->约定回调函数第一个参数为异常（空则无）
+	3、GC->原理和JVM复制算法相似
+	4、闭包->实现外部作用域访问内部作用域的方法叫闭包。
+
+17:00 学习菜鸟教程 https://www.runoob.com/nodejs/nodejs-tutorial.html
+	代码见./study-code/step[1..x].js
+	step1 创建服务器 1)require("http") 2)createServer
+	step2 NPM：Node随同包管理工具
+	step3 REPL：交互式解释器
+	step4 回调函数(比较阻塞与非阻塞->异步调用后向下进行直到回调)
+			->一般作为函数最后一个参数
