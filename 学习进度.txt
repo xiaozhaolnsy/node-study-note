@@ -107,6 +107,7 @@ Day2 2020-07-19 了解web
 				-> Express 应用使用回调函数的参数 request 和 response 对象来处理请求和响应的数据
 		-> 路由 step18_2.js
 				-> 路由决定由谁(指定脚本)响应客户端请求
+				app.get('/',fn(){});
 		-> 中间件 express.static 提供静态文件 step18_3.js
 				-> app.use('/public', express.static('public'));
 							-------					---------
@@ -116,3 +117,36 @@ Day2 2020-07-19 了解web
 				-> body-parser & querystring ( & multer )
 		-> (multipart)文件上传 暂不学习
 		-> Cookie step18_4.js
+	------------------------------------------------------------------------
+	    至此，菜鸟教程部分就学习完成了，整理出来了一些基础代码可供使用查看。
+	对Express的印象很不错，因为感觉轻量化程度较高。
+	晚上再找些教程学习一下Express，同时如果有基础的问题可能还需要看基础教程。
+
+	18:00 
+	B站：6分钟学会Express 后端 API 开发 Node.js 2020最新版
+	URL:https://www.bilibili.com/video/BV1e54y1D7cS/?spm_id_from=333.788.videocard.6
+	
+	1、Express是什么？简洁灵活的 Node Web 框架
+	2、Express能干什么？ x
+		特性：unopinionated 不限制设计模式 MVC、MVP
+	3、Express怎么用？（整理于链接教程）
+		step1 提供一个项目环境
+			-> 初始化一个node项目 -- project-name yarn init -y
+				-> yarn ? -- 和npm一样都是包管理工具，弥补npm缺陷（速度更快）
+			-> 添加express依赖 -- yarn add express
+			-> 新建app.js启动项目
+				-> 引入express库 -> 创建express实例 -> 监听端口启动服务
+				->
+		step2 处理请求
+			-> 请求方式、请求路径、回调函数
+								  -> send响应Client
+			-> 请求格式 json
+						-> 添加json中间件 app.use(express.json())
+		step3 多API优化 路由
+				-> routes文件夹下 新文件a.js 创建Router实例
+				-> post处理抽出 放入子路由 a.js
+				-> app.js 中引用 a.js
+				-> app.use("/post",a)
+			-> index.js 统一管理 子路由
+				module.exports = (app) => {app.use("/post",a);}
+				app.js中引入routes文件夹 调用函数 routes(app);
