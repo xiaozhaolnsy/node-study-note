@@ -93,6 +93,8 @@ Day2 2020-07-19 了解web
 					->无 追加表单
 	step16 工具模块 用到再看 os、path、net、dns、domain
 	step17 Web模块
-		1、什么是Web服务器？
+		1、什么是Web服务器？-> 3个主流Web服务器Apache、Nginx、IIS。
 		驻留于网上的程序，支持HTTP、HTML、URL，提供Web信息浏览服务
-						
+		2、req和res的处理
+	------------------------------------------------------------------------
+大概习惯node的回调方式，了解了Web Server和client的模型，接下来开始学习Express。
