@@ -105,4 +105,14 @@ Day2 2020-07-19 了解web
 				-> npm install multer --save		 --> enctype="multipart/form-data"
 		-> 第一个Express实例 step18_1.js
 				-> Express 应用使用回调函数的参数 request 和 response 对象来处理请求和响应的数据
-		-> 路由
+		-> 路由 step18_2.js
+				-> 路由决定由谁(指定脚本)响应客户端请求
+		-> 中间件 express.static 提供静态文件 step18_3.js
+				-> app.use('/public', express.static('public'));
+							-------					---------
+								  |							|
+								url path				local path
+		-> 路由器处理url参数 step18_4.js GET、POST
+				-> body-parser & querystring ( & multer )
+		-> (multipart)文件上传 暂不学习
+		-> Cookie step18_4.js
