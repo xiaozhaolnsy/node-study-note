@@ -136,7 +136,6 @@ Day2 2020-07-19 了解web
 			-> 添加express依赖 -- yarn add express
 			-> 新建app.js启动项目
 				-> 引入express库 -> 创建express实例 -> 监听端口启动服务
-				->
 		step2 处理请求
 			-> 请求方式、请求路径、回调函数
 								  -> send响应Client
