@@ -58,7 +58,7 @@
 						|                   |
 						------ -------------------
 	http://localhost:8888/start?foo=bar&hello=world
-								---     -----
+								------- -----------
 								|           |
 	querystring.parse(queryString)["foo"]	|
 											|
@@ -73,7 +73,9 @@
 			-> .inherits();继承，不能继承构造器中属性或函数
 			-> .inspect(); 将任意对象转换为字符串 ->类似Java中的.toString();
 			-> .isArray()、.isRegExp()、.isDate()
-	step14 文件系统 暂略
+	step14 文件系统
+			-> fs.readFile(,fn(){})异步读 回调
+			-> fs.readFileSync();同步读
 
 Day1End 大概了解了node的写法，和一些常用的函数。计划明天开始学习web。
 ----------------------------------------------------------------------------
@@ -81,4 +83,16 @@ Day1End 大概了解了node的写法，和一些常用的函数。计划明天�
 
 Day2 2020-07-19 了解web
 ========================
+	10:00 
+	step15 GET/POST
+			->Get: get在url参数中，使用url.parse方法解析
+			->Post:请求内容在请求体中，Node默认不解析（等待请求体传输耗时）
+				->req绑定end事件，回调进行解析
+				->解析判断有无postbody
+					->有 打印
+					->无 追加表单
+	step16 工具模块 用到再看 os、path、net、dns、domain
+	step17 Web模块
+		1、什么是Web服务器？
+		驻留于网上的程序，支持HTTP、HTML、URL，提供Web信息浏览服务
 						

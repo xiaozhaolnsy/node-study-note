@@ -36,3 +36,7 @@ study-code-index
         |-- step13_3 .inspect() 输出字符串
         |-- step13_4 .isArray()、.isRegExp()、.isDate()
     |-- step14 文件系统 暂略
+    |-- step15 GET/POST
+        |-- step15_1 GET
+        |-- step15_2 POST
+        |-- step15_3 POST_FORM
