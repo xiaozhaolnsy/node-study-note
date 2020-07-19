@@ -145,7 +145,7 @@ Day2 2020-07-19 了解web
 				-> routes文件夹下 新文件a.js 创建Router实例
 				-> post处理抽出 放入子路由 a.js
 				-> app.js 中引用 a.js
-				-> app.use("/post",a)
+				-> app.use("/r",a)
 			-> index.js 统一管理 子路由
 				module.exports = (app) => {app.use("/post",a);}
 				app.js中引入routes文件夹 调用函数 routes(app);
