@@ -1,6 +1,6 @@
 <template>
   <div>
-    <TopMenuBar/>
+    <TopBar/>
     <el-container>
       <el-aside><AsideMenu/></el-aside>
       <el-main><router-view/></el-main>

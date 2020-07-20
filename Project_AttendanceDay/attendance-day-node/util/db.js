@@ -7,7 +7,9 @@ module.exports = {
         port: '3306',
         user: 'node',
         password: '123456',
-        database: 'attendance_day'
+        database: 'attendance_day',
+        timezone: '+08:00', //东八时区
+        dateStrings : true //解决时间格式
     },
     //连接
     sqlConnect:function(sql,sqlArr,callBack){

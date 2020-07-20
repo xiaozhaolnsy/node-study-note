@@ -1,7 +1,5 @@
 const express = require('express');
 const db = require('../util/db');
-const bodyParser = require('body-parser');
-const urlencodedParser = bodyParser.urlencoded({extended:false})
 
 function getUsr(req,res){
     var sql = 'select * from usr_master';
@@ -21,8 +19,8 @@ function checkUsr(req,res){
     db.sqlConnect(sql,arr,(err,data)=>{
         if(err){console.log(err)}
         else{
-            if(data[0]){res.send({'data': data[0].uid})}
-            else{res.send({'data': 0 })}
+            if(data[0]){res.send({'uid': data[0].uid})}
+            else{res.send({'uid': 0 })}
         }
     })
 }

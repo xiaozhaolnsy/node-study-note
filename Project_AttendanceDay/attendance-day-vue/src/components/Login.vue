@@ -47,10 +47,11 @@ export default {
         data: { u: `${this.f.u}`, p: `${this.f.p}` }
       }).then(({ data }) => {
         if (data) {
-          localStorage.setItem(`userid`, data)
+          localStorage.setItem(`uid`, data.uid)
           // localStorage.setItem(`usertoken`, data.token)
           alert('登录成功')
-          this.$router.push({ path: '/attendance', params: {uid: data} })
+          this.$router.push({ path: '/attendance', params: {uid: data.uid} })
+          // params未知原因不可用 用localStorage
           this.$router.go(0)
         } else {
           alert('登录错误')

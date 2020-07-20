@@ -6,8 +6,8 @@
       active-text-color="#1f9aff"
       :default-active="active"
       mode="horizontal"
-      @select="navSelect"
     >
+    <!-- @select="navSelect" -->
         <div style="font-size:40px; color:#6abcff; height:80px;">
           AttendanceDay 出勤日
         </div>
@@ -17,12 +17,11 @@
 
 <script>
 export default {
-  // data() {
-  //   return {
-  //     u:'',
-  //     active: '2'
-  //   };
-  // },
+  data () {
+    return {
+      active: '0'
+    }
+  }
   // methods: {
   //   navSelect (key) {
   //     switch (key) {
@@ -47,8 +46,3 @@ export default {
   // }
 }
 </script>
-<style>
-.text-1{
-  size: 40px;
-}
-</style>
