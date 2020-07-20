@@ -4,6 +4,7 @@ Day3 项目实战：企业考勤系统 Project_AttendanceDay
 
 功能设计 -> 员工信息维护 -> 基本信息、考勤制度（查看、申请变更）、所属部门（上级领导）
         -> 打卡 （上下班打卡、计算时间、状态）
+        -> 休假 （加班、串休、请假）
         -> 统计 （查看打卡信息、查看管辖员工）
 
 10:00
@@ -12,7 +13,11 @@ Step1 分别创建 Node、Vue 项目
         -> npm i -g express-generator -> express server
         -> npm i -g vue-cli -> vue init webpack Vue-Project
 
-Step2 设计数据库
+13:00
+
+Step2 设计数据库、实现dao
+
+14:00
 
 Step3 设计、实现Node接口
 
