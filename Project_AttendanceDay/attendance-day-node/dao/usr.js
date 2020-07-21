@@ -1,5 +1,5 @@
 const express = require('express');
-const db = require('../util/db');
+const db = require('../util/mysql/db');
 
 function getUsr(req,res){
     var sql = 'select * from usr_master'

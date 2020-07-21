@@ -1,5 +1,5 @@
 const express = require('express')
-const db = require('../util/db')
+const db = require('../util/mysql/db')
 const url = require('url')
 const qs = require('querystring')
 
