@@ -2,7 +2,7 @@
   <div>
     <TopBar/>
     <el-container>
-      <el-aside><AsideMenu/></el-aside>
+      <el-aside width=25%><AsideMenu/></el-aside>
       <el-main><router-view/></el-main>
     </el-container>
   </div>

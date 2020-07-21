@@ -4,9 +4,9 @@ const router = express.Router();
 const bodyParser = require('body-parser');
 const urlencodedParser = bodyParser.urlencoded({extended:false})
 
-const att = require('../service/att')
+const att = require('../dao/att')
 
-router.get('/', function(req, res, next) {
+router.get('/', function(req, res) {
   att.getAtt(req, res)
 })
 

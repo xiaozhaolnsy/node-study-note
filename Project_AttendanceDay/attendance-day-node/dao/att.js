@@ -3,30 +3,34 @@ const db = require('../util/db')
 const url = require('url')
 const qs = require('querystring')
 
-function getAtt(req, res, date){
+function getAtt(req, res){
+    let now = new Date()
+    let date = now.toLocaleDateString() // 获取日期
     let query = url.parse(req.url).query
     let u = qs.parse(query)['u']
 
-    console.log(u)
     var sql = `select * from usr_attendance 
     where uid = ${u} and time>'${date}'
     order by time asc`
-    var arr = [];
-    var callBack = (err, data)=>{
+    var arr = []
+    db.sqlConnect(sql, arr, (err, data)=>{
         if(err){console.log(err)}
         else{res.send({'list': data})}
-    }
-    db.sqlConnect(sql, arr, callBack);
+    })
 }
 
-function postAtt(req, res, date, datetime){
+function postAtt(req, res){
     var status = 0;
+
+    let now = new Date()
+    let date = now.toLocaleDateString() // 获取日期
+    let datetime = now.toLocaleString() // 获取日期与时间
 
     var sql = `select * from usr_attendance 
     where uid = ${req.body.u} and time>'${date}'
     order by time asc 
     limit 1`
-    var arr = [];
+    var arr = []
     db.sqlConnect(sql,arr, (err, data) => {
         if(err){console.log(err)}
         else{

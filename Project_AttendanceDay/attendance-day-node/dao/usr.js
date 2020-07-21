@@ -2,20 +2,19 @@ const express = require('express');
 const db = require('../util/db');
 
 function getUsr(req,res){
-    var sql = 'select * from usr_master';
-    var arr = [];
-    var callBack = (err,data)=>{
-        if(err){console.log('db error')}
-        else{res.send({'list': data})}
-    }
-    db.sqlConnect(sql,arr,callBack);
+    var sql = 'select * from usr_master'
+    var arr = []
+    db.sqlConnect(sql,arr,(err, data)=>{
+        if(err){console.log(err)}
+        else{res.send({'uid': 0 })}
+    })
 }
 
 function checkUsr(req,res){
     var sql = `select uid from usr_login 
     where username = '${req.body.u}' 
     and password = ${req.body.p}`
-    var arr = [];
+    var arr = []
     db.sqlConnect(sql,arr,(err,data)=>{
         if(err){console.log(err)}
         else{
