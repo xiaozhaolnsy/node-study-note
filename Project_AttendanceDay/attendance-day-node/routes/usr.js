@@ -10,7 +10,7 @@ router.get('/', function(req, res) {
   usr.getUsr(req, res)
 })
 
-router.post('/',urlencodedParser,(req,res)=>{
+router.post('/',(req,res)=>{
   usr.checkUsr(req,res)
 })
 
