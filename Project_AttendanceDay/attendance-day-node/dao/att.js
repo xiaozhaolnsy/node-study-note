@@ -31,14 +31,15 @@ function postAtt(req, res, date, datetime){
         if(err){console.log(err)}
         else{
             if(data){
-                let s1 = convertDateFromString(data[0].time).getTime() // 取得当天最早打卡时间 时间戳
-                let s2 = convertDateFromString(datetime).getTime() // 取得当前时间 时间戳
-                let total = (s2 - s1)/1000 // 计算时间差值 （单位 s秒）
-                let hour = total/60/60 // 转换工作小时
-                console.log(hour)
-                console.log(typeof hour)
-                if(hour > 8) {status = 1} // 如工作时间满8小时 status = 1;
-                console.log(status)
+                if(data[0]){
+                    let s1 = convertDateFromString(data[0].time).getTime() // 取得当天最早打卡时间 时间戳
+                    let s2 = convertDateFromString(datetime).getTime() // 取得当前时间 时间戳
+                    let total = (s2 - s1)/1000 // 计算时间差值 （单位 s秒）
+                    let hour = total/60/60 // 转换工作小时
+                    console.log(hour)
+                    console.log(typeof hour)
+                    if(hour > 8) {status = 1} // 如工作时间满8小时 status = 1;
+                }
                 
                 let sql = `insert into usr_attendance 
                 values(0, '${req.body.u}', '${datetime}', ${status})`
