@@ -1,12 +1,12 @@
 # node-study-note
+Node学习笔记
 a note for node.js study
 
-#项目概览：Node学习、Express练习、项目实战（考勤系统、前后分离）
+### 项目概览：Node学习、Express练习、项目实战（考勤系统、前后分离）
 
-#目录结构
+### 目录结构
 
-#node-study-note 
-Node学习笔记
+node-study-note 
 _____
     |___ DuYi-Node 学习资料（作用不大）
     |___ Project_AttendanceDay 实战项目源码
