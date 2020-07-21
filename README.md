@@ -4,13 +4,12 @@ a note for node.js study
 
 ### 项目概览：Node学习、Express练习、项目实战（考勤系统、前后分离）
 
-___
 ### 日程安排
     Day 1 学习Node基本语法
     Day 2 学习Express写法
     Day 3 设计、构建项目
     Day 4 实现、完善
-___
+
 ### 目录结构
 
 node-study-note 
