@@ -31,6 +31,6 @@ node-study-note
 ![image](https://github.com/xiaozhaolnsy/node-study-note/blob/master/Project_AttendanceDay/demo_img_3.jpg)
 
 ### SNAPSHOT v1.0.1 - 2020/07/23
-1、新增promise封装redis操作对象
-2、新增redis支持cookie权限校验
-3、新增身份过期提示
+    1、新增promise封装redis操作对象
+    2、新增redis支持cookie权限校验
+    3、新增身份过期提示
