@@ -9,6 +9,7 @@ a note for node.js study
     Day 2 学习Express写法
     Day 3 设计、构建项目
     Day 4 实现、完善
+    Day 5 扩展、Promise、Mongoose
 
 ### 目录结构
 
