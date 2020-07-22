@@ -36,8 +36,9 @@ export default {
           console.log(data.list)
           this.datalist = data.list
         }
-      }
-      )
+      }, (err) => {
+        if (err.response.status === 401) { alert('身份过期，重新登录') }
+      })
     }
   },
   created () {

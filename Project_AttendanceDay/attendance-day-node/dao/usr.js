@@ -1,6 +1,7 @@
 // const express = require('express');
 // const db = require('../util/mysql/db');
 const model = require('../model/usr')
+const redis = require('../util/rediscache')
 
 function getUsr(req,res){
     // MYSQL
@@ -27,9 +28,13 @@ function checkUsr(req,res){
     // })
 
     //MONGO
-    model.find({username: req.body.u, password: req.body.p},{uid: 1}).then((data)=>{
-        if(data.length == 1)
-            res.send(`{"uid":"${data[0].uid}"}`)
+    model.find({username: req.body.u, password: req.body.p},{_id: 1, uid: 1}).then((data)=>{
+        if(data.length == 1){
+            let id = data[0]._id.toString(), uid = data[0].uid.toString()
+            res.cookie('userinfo',{'uid': uid, 'id': id},{signed: false, maxAge: 60 * 1000, httpOnly: true})
+            redis.set(id, uid)
+            res.send(`{"uid":"${uid}"}`)
+        }
         else
             res.send()
     })

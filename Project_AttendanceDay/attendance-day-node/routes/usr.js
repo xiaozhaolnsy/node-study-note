@@ -14,4 +14,4 @@ router.post('/',(req,res)=>{
   usr.checkUsr(req,res)
 })
 
-module.exports = router;
+module.exports = router

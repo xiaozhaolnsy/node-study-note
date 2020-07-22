@@ -3,19 +3,21 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
-
 var routes = require('./routes/index');
+var url = require('url');
+var redis = require('./util/rediscache')
 
 var app = express();
 
 //Cors
 app.all("*",function(req,res,next){
   //设置允许跨域的域名，*代表允许任意域名跨域
-  res.header("Access-Control-Allow-Origin","*");//"http://localhost:8080"
+  res.header("Access-Control-Allow-Origin","http://localhost:8080");//*
   //允许的header类型
   res.header("Access-Control-Allow-Headers","content-type");
   //跨域允许的请求方式 
   res.header("Access-Control-Allow-Methods","DELETE,PUT,POST,GET,OPTIONS");
+  res.header("Access-Control-Allow-Credentials", "true");
   if (req.method.toLowerCase() == 'options')
       res.send(200);  //让options尝试请求快速结束
   else
@@ -29,8 +31,31 @@ app.set('view engine', 'jade');
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
-app.use(cookieParser());
+app.use(cookieParser('secret_8s5a0f')); // 加密
 app.use(express.static(path.join(__dirname, 'public')));
+app.use((req,res,next)=>{
+  if(url.parse(req.url).pathname != '/usr'){ // 拦截所有非登录请求
+    
+    // 判断有无cookie： 有->验证->reids确实有         ->成功、可以访问
+    //                         ->reids无 可能失效    ->失败、401
+    //                 无-> 拒绝访问401 
+    if(req.cookies.userinfo && req.cookies.userinfo.uid && req.cookies.userinfo.id){ 
+      let id = req.cookies.userinfo.id, uid = req.cookies.userinfo.uid
+      redis.get(id).then((data)=>{
+        if(data)next()
+        else {
+          res.clearCookie('userinfo')
+          res.status(401).send()
+        }
+      })
+    }
+    else
+    res.status(401).send()
+    
+  }
+  else //登录请求 不验证
+    next()
+})
 
 routes(app);
 

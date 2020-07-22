@@ -72,7 +72,8 @@ function postAtt(req, res){
     //MONGO
     model.find({uid:u, exectime: { $gt: new Date(date)}}).sort({exectime:1}).limit(1)
          .then(data => {
-            if(data){
+            if(data.length>0){
+                // console.log(`data      `+data)
                 let s1 = timecast.convertDateFromString(timecast.convertJSONToDateString(data[0].toString())) .getTime() // MONGO
                 // let s1 = convertDateFromString(data[0].exectime).getTime() // 取得当天最早打卡时间 时间戳 MYSQL
                 let s2 = timecast.convertDateFromString(datetime).getTime() // 取得当前时间 时间戳
