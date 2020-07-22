@@ -1,7 +1,7 @@
 <template>
   <el-container
     direction="vertical"
-    style="width:20%;height:500px;margin-top:0%;border: 1px solid #ffffff;margin-left:30%;"
+    style="width:20%;height:500px;margin-top:0%;border: 1px solid #ffffff;margin-left:10%;"
   >
     <h3>请登录</h3>
     <el-divider></el-divider>
@@ -47,6 +47,7 @@ export default {
         data: { u: `${this.f.u}`, p: `${this.f.p}` }
       }).then(({ data }) => {
         if (data) {
+          console.log(data)
           localStorage.setItem(`uid`, data.uid)
           // localStorage.setItem(`usertoken`, data.token)
           alert('登录成功')

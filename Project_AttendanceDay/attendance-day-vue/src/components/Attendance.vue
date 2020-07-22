@@ -9,7 +9,7 @@
       :data="datalist"
       style="width: 100%">
       <el-table-column
-        prop="time"
+        prop="exectime"
         label="时间"
         width="300">
       </el-table-column>

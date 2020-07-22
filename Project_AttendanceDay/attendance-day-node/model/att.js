@@ -5,7 +5,7 @@ var Schema = mongoose.Schema;
 //usr_attendance集合结构
 var attSchema = new Schema({
     uid: Number,
-    time: Date,
+    exectime: Date,
     status: Number
 })
 

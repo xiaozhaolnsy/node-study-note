@@ -1,20 +1,13 @@
-const express = require('express')
-const db = require('../util/mysql/db')
+// const db0 =require('../util/mysql/pdb') // MYSQL
 const url = require('url')
 const qs = require('querystring')
-// const db0 =require('../util/mysql/pdb') // MYSQL
 const model = require('../model/att')
-const att = require('../model/att')
+const timecast = require('../util/timecast')
 
 function getAtt(req, res){
     let now = new Date()
     let iso = now.toISOString()
     let date = now.toLocaleDateString() // 获取日期
-    // let sdate = date.split('-')
-    // for(let i = 0; i < 3; i++){
-    //     if(sdate[i].length<2) sdate[i] = '0'.concat(sdate[i])
-    // }
-    // date = sdate[0]+'-'+sdate[1]+'-'+sdate[2]
     let query = url.parse(req.url).query
     let u = qs.parse(query)['u']
 
@@ -28,13 +21,9 @@ function getAtt(req, res){
     // MONGO
     console.log(date)
     console.log(iso)
-    model.find({uid:u, exectime: { $gt: new Date(date)}})
+    model.find({uid:u, exectime: { $gt: new Date(date)}}).sort({exectime:1})
          .then(data=>{
-            console.log( data )
-            let t = data[0].exectime
-            console.log( typeof t )
-             console.log( t )
-             res.send({'list':data})
+            res.send({'list':timecast.parseUTCTimeList(data)})
          },(err)=>{console.log(err)})
 }
 
@@ -83,39 +72,22 @@ function postAtt(req, res){
     //MONGO
     model.find({uid:u, exectime: { $gt: new Date(date)}}).sort({exectime:1}).limit(1)
          .then(data => {
-             console.log(data)
             if(data){
-                console.log(data[0])
-                console.log(data[0].exectime)
-                let s1 = convertDateFromString(data[0].exectime).getTime() // 取得当天最早打卡时间 时间戳
-                let s2 = convertDateFromString(datetime).getTime() // 取得当前时间 时间戳
+                let s1 = timecast.convertDateFromString(timecast.convertJSONToDateString(data[0].toString())) .getTime() // MONGO
+                // let s1 = convertDateFromString(data[0].exectime).getTime() // 取得当天最早打卡时间 时间戳 MYSQL
+                let s2 = timecast.convertDateFromString(datetime).getTime() // 取得当前时间 时间戳
                 let total = (s2 - s1)/1000 // 计算时间差值 （单位 s秒）
-                let hour = total/60/60 // 转换工作小时
+                let hour = total/60/60-8 // 转换工作小时
                 console.log(hour)
-                console.log(typeof hour)
                 if(hour > 8) {status = 1} // 如工作时间满8小时 status = 1;
             }
-            let model = new model({
+            let attModel = new model({
                 uid: u,
-                time: datetime,
+                exectime: datetime,
                 status: status
             })
-            model.save().then(()=>{console.log(1),()=>console.log(2)})
-
+            attModel.save().then(()=>{res.send({'success': 1}),()=>res.send()})
          })
-    
-}
-
-//时间转换 string转date yyyy-mm-dd hh:mm:ss
-function convertDateFromString(dateString) { 
-    if (dateString) { 
-    //let arr1 = dateString.split(" ") // MYSQL ' '
-    let arr1 = dateString.split("T") // MONGO 'T'
-    let sdate = arr1[0].split('-')
-    let stime = arr1[1].split(':')
-    let date = new Date(sdate[0], sdate[1]-1, sdate[2], stime[0], stime[1], stime[2])
-    return date
-    }
 }
 
 exports.getAtt = getAtt

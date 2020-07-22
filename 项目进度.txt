@@ -1,6 +1,6 @@
 Day3 项目实战：企业考勤系统 Project_AttendanceDay
 
-采用技术 Vue + Node(express) + mysql
+采用技术 Vue + Node(express) + Mongoose(支持mysql)
 
 功能设计 -> 员工信息维护 -> 基本信息、考勤制度（查看、申请变更）、所属部门（上级领导）
         -> 打卡 （上下班打卡、计算时间、状态）
